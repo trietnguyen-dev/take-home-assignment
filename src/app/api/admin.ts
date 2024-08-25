@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { handleApiError } from './common';
 
-const API_URL = "http://localhost:5000/api";
-
+const API_URL = process.env.NEXT_PUBLIC_API_ENDPOINT;
+console.log('API_URL:', API_URL);
 const getOffers = async (): Promise<IResponseOffer> => {
     try {
         console.log('token:', localStorage.getItem('authToken'));

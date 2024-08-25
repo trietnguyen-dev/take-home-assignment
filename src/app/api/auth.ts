@@ -1,7 +1,8 @@
 import axios from "axios";
 import { handleApiError } from "./common";
 import IResponse from "../interface/IResponse";
-const API_URL = "http://localhost:5000/api";
+import { log } from "console";
+const API_URL = process.env.NEXT_PUBLIC_API_ENDPOINT;
 const signIn = async (email: string, password: string) => {
     try {
         const response = await axios.post<IResponse>(`${API_URL}/auth/login`, {

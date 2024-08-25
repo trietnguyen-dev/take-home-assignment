@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { signIn, signInWithAdmin } from './api/auth';
 import { useRouter } from 'next/navigation';
 import IResponse from './interface/IResponse';
+import { log } from 'console';
 
 export default function Home() {
   const [email, setEmail] = useState<string>('');
@@ -12,6 +13,7 @@ export default function Home() {
   const [loading, setLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const router = useRouter();
+  const API_URL = process.env.NEXT_PUBLIC_API_ENDPOINT;
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

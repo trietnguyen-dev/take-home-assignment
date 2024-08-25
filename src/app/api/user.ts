@@ -2,7 +2,7 @@ import axios from 'axios';
 import IResponse from '../interface/IResponse';
 import { handleApiError } from './common';
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = process.env.NEXT_PUBLIC_API_ENDPOINT;
 
 const getOffers = async (): Promise<IResponseOffer> => {
     try {
